@@ -7,9 +7,6 @@
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
   StyleSheet,
   Text,
   useColorScheme,
@@ -18,16 +15,14 @@ import {
 
 import {
   Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
-
+const Stack = createNativeStackNavigator()
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -36,10 +31,29 @@ function App(): JSX.Element {
   };
 
   return (
-    <View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+      </Stack.Navigator>
       <Text>Halo Development</Text>
-    </View>
+    </NavigationContainer>
   );
+}
+
+function LoginScreen() {
+  return (
+    <View>
+      <Text>You're in loginscreen</Text>
+    </View>
+  )
+}
+function HomeScreen() {
+  return (
+    <View>
+      <Text>You're in Home Screen</Text>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
