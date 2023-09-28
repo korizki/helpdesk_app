@@ -37,7 +37,7 @@ function App(): JSX.Element {
 
   return (
     <View>
-      <Text>Halo</Text>
+      <Text>Halo Development</Text>
     </View>
   );
 }
