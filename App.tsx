@@ -18,6 +18,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import WelcomeScreen from './src/screens/WelcomeScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -32,28 +34,17 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Navigator initialRouteName="Welcome" screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+        />
+        <Stack.Screen name="Login" component={LoginScreen} options={{ animation: 'slide_from_right' }} />
       </Stack.Navigator>
-      <Text>Halo Development</Text>
     </NavigationContainer>
   );
-}
-
-function LoginScreen() {
-  return (
-    <View>
-      <Text>You're in loginscreen</Text>
-    </View>
-  )
-}
-function HomeScreen() {
-  return (
-    <View>
-      <Text>You're in Home Screen</Text>
-    </View>
-  )
 }
 
 const styles = StyleSheet.create({
