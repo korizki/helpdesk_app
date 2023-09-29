@@ -1,7 +1,11 @@
 export const red = '#D80032'
 export const redShadow = '#960319'
 export const white = '#fff'
+export const bgBlue = '#f5f9ff'
 export const grey = '#61677A'
+export const inputBgGrey = '#F9F9F9'
+export const black = '#352F44'
+export const borderColor = 'rgb(240,240,240)'
 export const fontRed = { color: '#C70039' }
 export const fontBlack = { color: '#352F44' }
 export const fontGrey = { color: '#61677A' }

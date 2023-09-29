@@ -1,12 +1,13 @@
 import { View, Text, Image, StatusBar, StyleSheet } from "react-native"
 import { Colors, Size } from "../assets/styles"
 import ButtonRed from "../components/atoms/ButtonRed"
+import BasicText from "../components/atoms/BasicText"
 
-export default function WelcomeScreen({ navigation }) {
+export default function WelcomeScreen({ navigation }: any) {
    return (
       <View style={style.mainBackground}>
          <StatusBar
-            backgroundColor={'white'}
+            backgroundColor={Colors.bgBlue}
             barStyle={"dark-content"}
          />
          <View style={style.centerContent}>
@@ -15,10 +16,14 @@ export default function WelcomeScreen({ navigation }) {
                source={require('../assets/images/welcome.png')}
                resizeMode={"contain"}
             />
-            <Text style={[Colors.fontRed, Size.xlg, style.title]}>Welcome to Helpdesk</Text>
-            <Text style={[Colors.fontGrey, Size.lg, style.basic]}>Report any problem, gets quick solutions</Text>
+            <Text style={[Colors.fontBlack, Size.xlg, style.title]}>Welcome to <Text style={Colors.fontRed}>Helpdesk</Text></Text>
+            <BasicText
+               isCenter={false}
+               text="Report any problem and get quick solutions."
+               textColor={Colors.fontGrey}
+            ></BasicText>
          </View>
-         <ButtonRed handlePress={e => navigation.navigate('Login')}>
+         <ButtonRed isWrapped={false} handlePress={() => navigation.navigate('Login')}>
             <Text style={style.textButton}> Get Started </Text>
          </ButtonRed>
       </View>
@@ -26,9 +31,6 @@ export default function WelcomeScreen({ navigation }) {
 }
 
 const style = StyleSheet.create({
-   basic: {
-      fontFamily: 'Quicksand-Medium'
-   },
    topImage: {
       width: '100%',
       height: '45%',
@@ -37,17 +39,19 @@ const style = StyleSheet.create({
    title: {
       fontFamily: 'Quicksand-Bold',
       fontWeight: '600',
-      marginBottom: 16,
+      marginBottom: 20,
    },
    centerContent: {
       height: '90%',
+      paddingHorizontal: '5%',
       justifyContent: 'flex-start',
       alignItems: 'center'
    },
    mainBackground: {
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.bgBlue,
       width: '100%',
       height: '100%',
+      paddingBottom: '5%',
       justifyContent: 'space-between'
    },
    textButton: {

@@ -41,7 +41,11 @@ function App(): JSX.Element {
           name="Welcome"
           component={WelcomeScreen}
         />
-        <Stack.Screen name="Login" component={LoginScreen} options={{ animation: 'slide_from_right' }} />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ animation: 'slide_from_right' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
